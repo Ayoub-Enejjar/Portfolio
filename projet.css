@@ -74,3 +74,14 @@ img{
     padding: 5px 5px;
 }
 
+.card:hover{
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.skiliton:hover{
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
