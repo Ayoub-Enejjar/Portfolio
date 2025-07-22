@@ -1,4 +1,4 @@
-# 🚀 Personal Profile Card - Angular Demo
+# 🚀 Personal Profile Card :
 
 This project is a modern personal profile card web app built with Angular and custom CSS. It showcases a stylish, dark-themed card with animated effects and links, suitable for use as a personal portfolio or digital business card.
 
