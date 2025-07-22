@@ -1,0 +1,76 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #1e1e1e, #232526, #414345, #232526);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: #faebd7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.card{
+    background-color: #1e1e1e;
+   width: 400px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    
+}
+
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.skiliton{
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 5px 5px;
+    overflow: hidden;
+    position: relative;
+   
+}
+.skiliton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150px;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: Myanimation 1.5s infinite;
+}
+
+@keyframes Myanimation{
+    100%{
+        left: 100%;
+    }
+}
+
+
+.info{
+    border-radius: 6px;
+    padding: 5px 5px;
+    margin-bottom: 16px;
+}
+
+.liens{
+    border-radius: 6px;
+    padding: 5px 5px;
+}
+
