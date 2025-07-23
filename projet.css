@@ -74,10 +74,13 @@ body {
     border-radius: 12px;
 }
 
-img{
+.image img{
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(255, 250, 214, 0.904);
+    transform: scale(1.03);
+    transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .skiliton{
