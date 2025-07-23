@@ -1,4 +1,5 @@
 # 🚀 Personal Profile Card :
+1. Open your browser and navigate to `https://portfoliocicada.netlify.app/` to view the app.
 
 This project is a modern personal profile card web app built with Angular and custom CSS. It showcases a stylish, dark-themed card with animated effects and links, suitable for use as a personal portfolio or digital business card.
 
@@ -33,7 +34,6 @@ This project is a modern personal profile card web app built with Angular and cu
    ```bash
    ng serve
    ```
-4. Open your browser and navigate to `http://localhost:4200/` to view the app.
 
 ## 🖌️ Customization
 - Edit `projet.html` to update your profile information, links, and image.
