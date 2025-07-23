@@ -50,6 +50,7 @@ body {
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
     color: #faebd7;
+    border-radius: 10px;
  
 }
 
