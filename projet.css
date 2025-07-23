@@ -1,3 +1,9 @@
+html {
+    background: linear-gradient(-45deg, #1e1e1e, #232526, #414345, #232526);     
+    background-color: #1e1e1e;
+}
+
+
 header{
     display: flex;
     align-items: center;
