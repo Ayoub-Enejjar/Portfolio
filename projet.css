@@ -259,6 +259,7 @@ section {
     border-radius: 12px;
     margin-bottom: 20px;
     transition: box-shadow 0.3s, transform 0.3s;
+     margin-right: 9px;
     
 }
 
@@ -269,8 +270,8 @@ section {
 }
 
 .design-logo{
-    width: 197px;
-    height: 190px;
+    width: 180px;
+    height: 180px;
         border-radius: 12px;
     margin-bottom: 20px;
     transition: box-shadow 0.3s, transform 0.3s;
