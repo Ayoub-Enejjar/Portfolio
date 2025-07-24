@@ -15,7 +15,7 @@ header{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* Ensures header stays on top of the top */
 }
 
 .header-content {
@@ -43,14 +43,18 @@ header{
     margin-left: 20px;
 }
 
-
 body {
     min-height: 100vh;
+    width: 95%;
     background: linear-gradient(-45deg, #1e1e1e, #232526, #414345, #232526);
     background-size: 400% 400%;
     animation: gradientBG 10s ease infinite;
     color: #faebd7;
     border-radius: 10px;
+    font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+    font-weight: bold;
+    font-style: italic;
+    padding: 10px 20px;
  
 }
 
@@ -69,11 +73,13 @@ body {
 
 .card{
     background-color: #1e1e1e;
-   width: 400px;
+   width: 420px;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    
+    margin-bottom: 30px;
+    display: grid ;
+    gap: 10px;
 }
 
 .image{
@@ -101,6 +107,7 @@ body {
     position: relative;
    
 }
+
 .skiliton::before {
     content: "";
     position: absolute;
@@ -154,7 +161,9 @@ body {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    
+    margin-bottom: 10px;
+    display: grid;
+    gap: 10px;
 }
 
 .skiliton-experience{
@@ -178,4 +187,109 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
     color: #faebd7;
     font-size: 1.1rem;
+}
+
+
+.form-container {
+    width: 100%;
+     background-color: #1e1e1e;
+   width: 800px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+    display: grid;
+    gap: 20px;
+    align-items: center; /* Centers content vertically */
+    width: 400px;
+}
+
+#button {
+    background: linear-gradient(90deg, #fde8cc 0%, #f7ca90 100%);
+    color: #232526;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+}
+
+#button:hover {
+    background: linear-gradient(90deg, #1e1e1e, #232526, #414345, #232526);
+    transform: scale(1.05);
+    color: #faebd7;
+}
+
+#message{
+     background: linear-gradient(90deg, #fde8cc 0%, #f7ca90 100%);
+    color: #232526;
+    border-radius: 6px;
+}
+
+#name{
+      background: linear-gradient(90deg, #fde8cc 0%, #f7ca90 100%);
+    color: #232526;
+    border-radius: 6px;
+}
+
+#email{
+      background: linear-gradient(90deg, #fde8cc 0%, #f7ca90 100%);
+    color: #232526;
+    border-radius: 6px;
+}
+
+section {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 12px;
+     background: linear-gradient(-45deg, #1e1e1e, #232526, #414345, #232526);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    margin-bottom: 40px;
+    gap: 10px;
+}
+
+.design-image{
+    width: 155px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s, transform 0.3s;
+    
+}
+
+.design-image:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.design-logo{
+    width: 197px;
+    height: 190px;
+        border-radius: 12px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s, transform 0.3s;
+
+}
+
+.design-logo:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+
+#title{
+display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #faebd7;
+    margin-bottom: 10px;
 }
