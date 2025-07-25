@@ -208,7 +208,7 @@ footer {
     background: linear-gradient(90deg, #fde8cc 0%, #f7ca90 100%);
     color: #232526;
     border: none;
-    padding: 12px 32px;
+    padding: 10px 25px;
     border-radius: 6px;
     font-size: 1.2rem;
     font-family: 'Playfair Display', 'Georgia', serif;
@@ -255,7 +255,7 @@ section {
 
 .design-image{
     width: 155px;
-    height: auto;
+    height: auto; 
     border-radius: 12px;
     margin-bottom: 20px;
     transition: box-shadow 0.3s, transform 0.3s;
@@ -270,7 +270,7 @@ section {
 }
 
 .design-logo{
-    width: 180px;
+    width: 185px;
     height: 180px;
         border-radius: 12px;
     margin-bottom: 20px;
@@ -294,3 +294,25 @@ display: flex;
     color: #faebd7;
     margin-bottom: 10px;
 }
+
+.form-image-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 300px;
+}
+
+.form-side-image {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.form-side-image img {
+    width: 500px;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    position: relative;
+   
+}
+
