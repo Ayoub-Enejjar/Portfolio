@@ -36,11 +36,11 @@ header{
 }
 
 .logo {
-    height: 60px;
+    height: 130px;
     width: auto;
-    margin-right: 20px;
+    margin-right: 2px;
     border-radius: 50%; /* Remove if you want sharp corners */
-    margin-left: 20px;
+    margin-left: 2px;
 }
 
 body {
