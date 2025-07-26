@@ -36,11 +36,11 @@ header{
 }
 
 .logo {
-    height: 130px;
+    height: 150px;
     width: auto;
-    margin-right: -15px;
+    margin-right: -20px;
     border-radius: 50%; /* Remove if you want sharp corners */
-    margin-left: -25px;
+    margin-left: -30px;
 }
 
 body {
@@ -305,6 +305,7 @@ section {
     0% { text-shadow: 0 0 18px #ffd700, 0 0 32px #faebd7; }
     100% { text-shadow: 0 0 32px #ffd700, 0 0 48px #faebd7; }
 }
+
 #skills{
      background: linear-gradient(90deg, #ffd700, #faebd7, #f7ca90, #232526);
     background-clip: text;
@@ -315,8 +316,6 @@ section {
     animation: glowTitle 1.5s infinite alternate;
     letter-spacing: 2px;
 }
-
-
 
 #info{
      background: linear-gradient(90deg, #ffd700, #faebd7, #f7ca90, #232526);
@@ -339,6 +338,7 @@ section {
     animation: glowTitle 1.5s infinite alternate;
     letter-spacing: 2px;
 }
+
 #experiences{
      background: linear-gradient(90deg, #ffd700, #faebd7, #f7ca90, #232526);
     background-clip: text;
@@ -360,6 +360,8 @@ section {
     position: relative;
     display: inline-block;
     overflow: hidden;
+     position: relative;
+ 
 }
 
 .form-side-image img {
@@ -368,9 +370,8 @@ section {
     border-radius: 12px;
     display: block;
     position: relative;
-     animation: floatBreath 4s ease-in-out infinite;
+   animation: floatBreath 4s ease-in-out infinite;
   transform-origin: center;
-
   
 }
 @keyframes floatBreath {
@@ -381,7 +382,6 @@ section {
         transform: translateY(-11px);
     }
 }
-
 
 .service-section{
      display: flex;
