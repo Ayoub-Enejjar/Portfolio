@@ -33,7 +33,6 @@ header{
     justify-content: center; /* center the title/content */
     font-size: 2rem;
     font-weight: bold;
-    
 }
 
 .logo {
@@ -126,7 +125,6 @@ body {
     }
 }
 
-
 .info{
     border-radius: 6px;
     padding: 5px 5px;
@@ -197,7 +195,7 @@ footer {
    width: 800px;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 35px rgba(235, 230, 230, 0.5);
     margin-bottom: 15px;
     display: grid;
     gap: 20px;
@@ -317,6 +315,9 @@ section {
     animation: glowTitle 1.5s infinite alternate;
     letter-spacing: 2px;
 }
+
+
+
 #info{
      background: linear-gradient(90deg, #ffd700, #faebd7, #f7ca90, #232526);
     background-clip: text;
@@ -348,6 +349,7 @@ section {
     animation: glowTitle 1.5s infinite alternate;
     letter-spacing: 2px;
 }
+
 .form-image-row {
     display: flex;
     align-items: flex-start;
@@ -369,3 +371,32 @@ section {
    
 }
 
+.service-section{
+     display: flex;
+    align-items: flex-start;
+    gap: 100px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-image {
+    width: 350px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(5, 192, 99, 0.2);
+    transform: scale(1.03) perspective(600px) rotateY(0deg) rotateX(0deg);
+    transition: 
+        box-shadow 0.5s, 
+        transform 0.3s cubic-bezier(.25,.8,.25,1);
+    will-change: transform;
+}
+
+.service-image:hover {
+    box-shadow: 0 15px 35px rgba(5, 192, 99, 0.4);
+    transform: scale(1.08) perspective(600px) rotateY(12deg) rotateX(8deg);
+    transition: 
+        box-shadow 0.3s, 
+        transform 0.3s cubic-bezier(.25,.8,.25,1);
+}
