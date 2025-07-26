@@ -368,8 +368,20 @@ section {
     border-radius: 12px;
     display: block;
     position: relative;
-   
+     animation: floatBreath 4s ease-in-out infinite;
+  transform-origin: center;
+
+  
 }
+@keyframes floatBreath {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-11px);
+    }
+}
+
 
 .service-section{
      display: flex;
