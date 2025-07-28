@@ -11,34 +11,22 @@ This project is a modern personal profile card web app built with Angular and cu
 - 🔗 Section for personal information and external links
 
 ## 🗂️ Project Structure
-- `src/` - Main Angular source files
+- `src/` - Main Angular source files (Note: This project currently uses a simpler structure, but is set up for future Angular integration)
 - `projet.css` - Custom CSS for card and background styling
-- `projet.html` - Main HTML structure for the profile card
+- `index.html` - Main HTML structure for the profile card
+- `projet.ts` - TypeScript source file for interactive elements and form handling
+- `projet.js` - Compiled JavaScript file generated from `projet.ts`
+- `tsconfig.json` - TypeScript configuration file
 
 ## 🛠️ Getting Started
 
 ### 📋 Prerequisites
 - [Node.js](https://nodejs.org/) (v14 or higher recommended)
-- [Angular CLI](https://angular.io/cli)
+- [Angular CLI](https://angular.io/cli) (Optional, for future Angular development)
+- [TypeScript](https://www.typescriptlang.org/) (Install globally: `npm install -g typescript`)
 
 ### 📦 Installation
 1. Clone the repository:
    ```bash
    git clone <repository-url>
    cd projet-angular-demo
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   ng serve
-   ```
-
-## 🖌️ Customization
-- Edit `projet.html` to update your profile information, links, and image.
-- Modify `projet.css` to change the card style, background, or animations.
-
-## 📄 License
-This project is open source and available under the [MIT License](LICENSE). 

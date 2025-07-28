@@ -2,15 +2,14 @@ html {
     background: linear-gradient(-45deg, #1e1e1e, #232526, #414345, #232526);     
     background-color: #1e1e1e;
 }
-
-
+/*when we get the same target we also discribe the */
 header{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 80px;
-    backdrop-filter: blur(4px);
-    margin-bottom: 40px;
+    backdrop-filter: blur(4px);  
+    margin-bottom: 40px;  
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
     position: sticky;

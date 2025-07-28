@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2016",                                 
+    "esModuleInterop": true,                              
+    "forceConsistentCasingInFileNames": true,            
+    "strict": true,                                      
+    "skipLibCheck": true                            
+  },
+  "include": [
+    "projet.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
