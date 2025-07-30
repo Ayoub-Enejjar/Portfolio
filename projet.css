@@ -2,7 +2,7 @@ html {
     background: linear-gradient(-45deg, #1e1e1e, #232526, #414345, #232526);     
     background-color: #1e1e1e;
 }
-/*when we get the same target we also discribe the */
+
 header{
     display: flex;
     align-items: center;
@@ -14,8 +14,55 @@ header{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
     position: sticky;
     top: 0;
-    z-index: 1000; /* Ensures header stays on top of the top */
+    z-index: 1000; 
 }
+
+
+.main-nav {
+
+    padding: 10px 0;
+    text-align: center; 
+    margin-right: 35px;
+}
+
+.main-nav ul {
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: center; 
+    gap: 35px; 
+}
+
+.main-nav li a {
+    color: #ebd472; 
+    text-decoration: none; 
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease; 
+}
+
+.main-nav li a:hover {
+    color: #eedb71;
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 5px;
+}
+
+header {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between logo and title */
+    padding: 10px 20px;
+    width: 100%; /* Ensure it takes full width */
+    justify-content: center; /* Center logo and title */
+}
+
 
 .header-content {
     display: flex;
@@ -88,6 +135,7 @@ body {
     margin-bottom: 15px;
     border-radius: 12px;
 }
+
 
 .image img{
     width: 200px;
@@ -206,7 +254,7 @@ footer {
     background: linear-gradient(90deg, #fde8cc 0%, #f7ca90 100%);
     color: #232526;
     border: none;
-    padding: 10px 25px;
+    padding: 10px 20px;
     border-radius: 6px;
     font-size: 1.2rem;
     font-family: 'Playfair Display', 'Georgia', serif;
@@ -381,6 +429,36 @@ section {
         transform: translateY(-11px);
     }
 }
+
+
+.form-container label {
+    display: block; 
+    margin-top: 15px; 
+    margin-bottom: 5px; 
+    font-weight: bold;
+    color: #faebd7; 
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="date"], 
+.form-container input[type="time"], 
+.form-container textarea {
+    width: calc(100% - 20px); 
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    background-color: #333; 
+    color: #faebd7; 
+}
+
+.form-container input[type="date"]::-webkit-calendar-picker-indicator,
+.form-container input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); 
+}
+
 
 .service-section{
      display: flex;

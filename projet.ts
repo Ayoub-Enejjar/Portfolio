@@ -14,7 +14,7 @@ document.querySelector('form')!.addEventListener('submit', function(e: SubmitEve
         alert('Please fill in all fields!'); 
         e.preventDefault();
         return;
-    } 
+    }  
  
     if(!emailPattern.test(email)){
         alert('Please enter a valide email adress!');
