@@ -45,7 +45,7 @@ header{
 .main-nav li a:hover {
     color: #eedb71;
     background-color: rgba(255, 255, 255, 0.1); 
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 header {
@@ -429,7 +429,6 @@ section {
         transform: translateY(-11px);
     }
 }
-
 
 .form-container label {
     display: block; 
