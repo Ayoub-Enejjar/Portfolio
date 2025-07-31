@@ -240,12 +240,12 @@ footer {
     width: 100%;
      background-color: #1e1e1e;
    width: 800px;
-    padding: 20px;
+    padding: 6px;
     border-radius: 12px;
     box-shadow: 0 15px 35px rgba(235, 230, 230, 0.5);
     margin-bottom: 15px;
     display: grid;
-    gap: 20px;
+    gap: 10px;
     align-items: center; /* Centers content vertically */
     width: 400px;
 }
@@ -400,7 +400,7 @@ section {
 .form-image-row {
     display: flex;
     align-items: flex-start;
-    gap: 300px;
+    gap: 200px;
 }
 
 .form-side-image {
