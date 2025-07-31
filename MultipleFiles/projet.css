@@ -240,10 +240,11 @@ footer {
     width: 100%;
      background-color: #1e1e1e;
    width: 800px;
-    padding: 6px;
+    padding: 6px 25px;
     border-radius: 12px;
     box-shadow: 0 15px 35px rgba(235, 230, 230, 0.5);
     margin-bottom: 15px;
+    margin-left: 15px;
     display: grid;
     gap: 10px;
     align-items: center; /* Centers content vertically */
