@@ -226,7 +226,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70px;
+    height: 200px;
     backdrop-filter: blur(4px);
     margin-top: 40px;
     border-radius: 12px;

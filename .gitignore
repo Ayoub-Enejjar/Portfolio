@@ -1,0 +1,22 @@
+# .gitignore (in your project root: portfolio/)
+
+# Node.js backend dependencies
+/backend/node_modules/
+/backend/.env
+
+# Compiled TypeScript (if you use it for backend)
+/backend/*.js.map
+/backend/*.js # If you compile TS to JS in backend/
+
+# Frontend dependencies (if you add them later)
+/node_modules/
+
+# VS Code files
+.vscode/
+
+# Other common ignores
+*.log
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

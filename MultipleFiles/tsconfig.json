@@ -7,7 +7,7 @@
     "skipLibCheck": true                            
   },
   "include": [
-    "MultipleFiles/projet.ts"
+    "projet.ts"
   ],
   "exclude": [
     "node_modules"
