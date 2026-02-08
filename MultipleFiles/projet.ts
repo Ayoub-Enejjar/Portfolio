@@ -1,53 +1,58 @@
-document.querySelector('form')!.addEventListener('submit', function(e: SubmitEvent){
-    const nameInput = document.getElementById('name') as HTMLInputElement;
-    const emailInput = document.getElementById('email') as HTMLInputElement;
-    const messageInput = document.getElementById('message') as HTMLInputElement;
-    
-    
-    
-    const name= nameInput.value.trim();
-    const email=emailInput.value.trim();
-    const message= messageInput.value.trim();
+// Reveal elements on scroll
+const observerOptions = {
+    threshold: 0.1
+};
 
-    const emailPattern: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!name || !email || !message){
-        alert('Please fill in all fields!'); 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Form Handling
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        return;
-    }  
- 
-    if(!emailPattern.test(email)){
-        alert('Please enter a valide email adress!');
-        e.preventDefault();
-        return;
-    }
-    
-});
+        
+        const formData = {
+            name: (document.getElementById('name') as HTMLInputElement).value,
+            email: (document.getElementById('email') as HTMLInputElement).value,
+            message: (document.getElementById('message') as HTMLTextAreaElement).value
+        };
 
-document.querySelector('form')!.addEventListener('reset', function() {
-    (document.getElementById('name') as HTMLInputElement).value = '';
-    (document.getElementById('email') as HTMLInputElement).value = '';
-    (document.getElementById('message') as HTMLInputElement).value = '';
-});
+        if (!formData.name || !formData.email || !formData.message) {
+            alert('Please fill in all required fields.');
+            return;
+        }
 
+        console.log('Form Submitted:', formData);
+        alert('Thank you for your message! I will get back to you soon.');
+        contactForm.reset();
+    });
+}
 
-document.querySelectorAll('.service-image').forEach((card: Element) => {
-     if (!(card instanceof HTMLElement)) {
-        console.warn('Found a .service-image element that is not an HTMLElement:', card);
-        return; // Skip if it's not an HTMLElement
-    }
-    card.addEventListener('mousemove', function(e: MouseEvent) {
+// Hover effects for service cards
+document.querySelectorAll('.service-card').forEach((card) => {
+    card.addEventListener('mousemove', (e: any) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
+        
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        const rotateY = ((x - centerX) / centerX) * 12;
-        const rotateX = ((centerY - y) / centerY) * 8;
-        (card as HTMLElement).style.transform = `scale(1.08) perspective(600px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        (card as HTMLElement).style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
     });
-    card.addEventListener('mouseleave', function() {
-        (card as HTMLElement).style.transform = 'scale(1.03) perspective(600px) rotateY(0deg) rotateX(0deg)';
+
+    card.addEventListener('mouseleave', () => {
+        (card as HTMLElement).style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
     });
 });
-
