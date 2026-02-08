@@ -14,7 +14,7 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // Form Handling
-const contactForm = document.getElementById('contactForm');
+const contactForm = document.getElementById('contactForm') as HTMLFormElement;
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
