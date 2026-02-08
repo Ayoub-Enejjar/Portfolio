@@ -46,8 +46,16 @@ header {
 }
 
 .logo {
-    height: 40px;
-    filter: drop-shadow(0 0 8px var(--accent-gold));
+    height: 60px;
+    width: 60px;
+    border-radius: 12px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 12px var(--accent-gold));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .main-nav ul {
