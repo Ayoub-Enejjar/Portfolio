@@ -189,22 +189,60 @@ header {
 
 .scroll-container {
     display: flex;
-    overflow-x: auto;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent-gold) transparent;
+    gap: 2rem;
+    padding: 2rem 0;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); }
+}
+
+#design-section {
+    overflow: hidden;
+    position: relative;
+    padding: 4rem 0;
+}
+
+#design-section::before,
+#design-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#design-section::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-dark), transparent);
+}
+
+#design-section::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-dark), transparent);
 }
 
 .gallery-item {
-    height: 250px;
-    border-radius: 16px;
-    transition: transform 0.3s;
-    cursor: pointer;
+    height: 300px;
+    border-radius: 20px;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s;
+    flex-shrink: 0;
+    border: 1px solid var(--glass-border);
 }
 
 .gallery-item:hover {
-    transform: translateY(-10px);
+    transform: scale(1.05) translateY(-10px);
+    border-color: var(--accent-gold);
+    z-index: 10;
+}
+
+#design-section:hover .scroll-container {
+    animation-play-state: paused;
 }
 
 .services-grid {
