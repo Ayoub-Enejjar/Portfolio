@@ -3,8 +3,7 @@
 # Node.js backend dependencies
 /backend/node_modules/
 /backend/.env
-/MultipleFiles/netlify.toml
-/backend/netlify.toml
+# netlify.toml files are intentionally committed so Netlify can read them
 
 # Compiled TypeScript (if you use it for backend)
 /backend/*.js.map
