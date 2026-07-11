@@ -612,3 +612,55 @@ body.hovering .cursor-outline {
         grid-template-columns: 1fr;
     }
 }
+
+/* Buildspace Hover Preview */
+.buildspace-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.hover-preview {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9) translateY(10px);
+    width: 340px;
+    max-width: 90vw;
+    background: rgba(10, 10, 11, 0.95);
+    border: 1px solid var(--accent-gold);
+    border-radius: 12px;
+    padding: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                visibility 0.3s;
+    z-index: 100;
+}
+
+.hover-preview img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Arrow indicator pointing down to the item */
+.hover-preview::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--accent-gold) transparent transparent transparent;
+}
+
+.buildspace-item:hover .hover-preview {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1) translateY(0);
+}
