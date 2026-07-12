@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glovo-App Project | Ayoub Enejjar Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="projet.css">
+    <link rel="icon" type="image/png" href="images/new_logo.png">
+</head>
+
+<body id="top">
+    <header>
+        <div class="header-content">
+            <a href="index.html#projects-section">
+                <img src="images/new_logo.png" alt="Logo" class="logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#top">Portfolio</a></li>
+                    <li><a href="index.html#projects-section">Projects</a></li>
+                    <li><a href="index.html#design-section">Design</a></li>
+                    <li><a href="index.html#contact-section">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Back Navigation -->
+        <div class="back-nav reveal active">
+            <a href="index.html#projects-section" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back to Portfolio
+            </a>
+        </div>
+
+        <section class="project-details-section">
+            <div class="project-details-grid">
+                <!-- Visuals Column -->
+                <div class="project-visuals-col reveal active">
+                    <div class="card project-preview-card">
+                        <div class="project-preview-img-container">
+                            <img src="images/glovo_app_preview.png" alt="Glovo App Screen Preview" class="project-preview-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Column -->
+                <div class="project-info-col reveal active">
+                    <div class="project-header">
+                        <div class="project-categories-badges">
+                            <span class="project-badge">Fullstack</span>
+                            <span class="project-badge">Logistics</span>
+                            <span class="project-badge">React & Node</span>
+                        </div>
+                        <h1 class="project-detail-title glitch-text">Glovo-App</h1>
+                        <p class="project-tagline">A Premium Fullstack Delivery Management System</p>
+                    </div>
+
+                    <div class="project-description-card">
+                        <p class="description-text">
+                            A robust delivery management application designed to streamline courier logistics and enhance the ordering experience. This system includes multi-view dashboards, real-time mock tracking, dynamic service navigation, and advanced state caching.
+                        </p>
+                    </div>
+
+                    <!-- Tech Stack Box -->
+                    <div class="project-tech-box">
+                        <h3 class="tech-box-title">Tech Stack</h3>
+                        <div class="tech-box-grid">
+                            <div class="tech-box-badge">
+                                <i class="devicon-react-original colored"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="tech-box-badge">
+                                <i class="devicon-nodejs-plain colored"></i>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="tech-box-badge">
+                                <i class="devicon-css3-plain colored"></i>
+                                <span>CSS Modules</span>
+                            </div>
+                            <div class="tech-box-badge">
+                                <i class="devicon-netlify-plain colored"></i>
+                                <span>Netlify</span>
+                            </div>
+                            <div class="tech-box-badge">
+                                <i class="devicon-git-plain colored"></i>
+                                <span>Git / GitHub</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Features -->
+                    <div class="project-features-box">
+                        <h3 class="features-title">Core Implementation Details</h3>
+                        <ul class="features-list">
+                            <li>
+                                <strong>Multi-View Dashboard:</strong> Tailored dashboard layouts for standard users, couriers (delivery personnel), and administrators, ensuring role-specific interactions.
+                            </li>
+                            <li>
+                                <strong>Courier Coordinator:</strong> Integrated status monitoring and tracking interface for delivery agents to accept and process active orders.
+                            </li>
+                            <li>
+                                <strong>"Anything" Ordering Form:</strong> A custom requests wizard allowing users to describe and order arbitrary items from anywhere in the city.
+                            </li>
+                            <li>
+                                <strong>Local Storage Cache:</strong> Keeps user preferences, cart lists, active sessions, and local forms persistent even across tab refreshes.
+                            </li>
+                            <li>
+                                <strong>Modular CSS Modules:</strong> Scoped, clean styles featuring complete dark mode integration and zero-leak layout configurations.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Action Links -->
+                    <div class="project-actions-grid">
+                        <a href="https://github.com/Ayoub-Enejjar/Glovo-App" target="_blank" class="project-btn project-btn--primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            Live Website
+                        </a>
+                        <a href="https://github.com/Ayoub-Enejjar/Glovo-App" target="_blank" class="project-btn project-btn--secondary">
+                            <i class="devicon-github-original" style="font-size: 1.2rem; margin-right: 8px;"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AYOUB ENEJJAR. Crafted with Passion.</p>
+    </footer>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <script src="projet.js"></script>
+</body>
+
+</html>

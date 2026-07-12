@@ -700,3 +700,393 @@ body.hovering .cursor-outline {
         width: 100%;
     }
 }
+
+/* ========================
+   PROJECTS SECTION
+   ======================== */
+#projects-section {
+    margin-bottom: 6rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    overflow: hidden;
+    padding: 2.5rem;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.08);
+}
+
+.project-image-container {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1.6 / 1;
+    border: 1px solid var(--glass-border);
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 11, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s;
+    backdrop-filter: blur(4px);
+}
+
+.view-project-btn {
+    padding: 0.8rem 1.6rem;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transform: translateY(15px);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s, color 0.3s;
+}
+
+.project-image-container:hover .project-img {
+    transform: scale(1.08);
+}
+
+.project-image-container:hover .project-image-overlay {
+    opacity: 1;
+}
+
+.project-image-container:hover .view-project-btn {
+    transform: translateY(0);
+}
+
+.view-project-btn:hover {
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-badge {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-gold);
+    background: rgba(212, 175, 55, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-link:hover {
+    color: var(--accent-gold);
+}
+
+.project-description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+/* ========================
+   PROJECT DETAIL PAGE
+   ======================== */
+.back-nav {
+    margin-bottom: 3rem;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.back-btn:hover {
+    color: var(--accent-gold);
+    transform: translateX(-5px);
+}
+
+.project-details-section {
+    margin-bottom: 6rem;
+}
+
+.project-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.project-preview-card {
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s;
+}
+
+.project-preview-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    border-color: rgba(212, 175, 55, 0.25);
+}
+
+.project-preview-img-container {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background: #0f0f11;
+}
+
+.project-preview-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.project-categories-badges {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.project-detail-title {
+    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
+}
+
+.project-tagline {
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    font-weight: 500;
+    margin-bottom: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.project-description-card {
+    background: rgba(255, 255, 255, 0.015);
+    border-left: 3px solid var(--accent-gold);
+    padding: 1.5rem 2rem;
+    border-radius: 0 16px 16px 0;
+    margin-bottom: 2.5rem;
+}
+
+.description-text {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.project-tech-box {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.tech-box-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 0.5rem;
+}
+
+.tech-box-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tech-box-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    font-size: 0.9rem;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.tech-box-badge:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-gold);
+}
+
+.tech-box-badge i {
+    font-size: 1.3rem;
+}
+
+.project-features-box {
+    margin-bottom: 3rem;
+}
+
+.features-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+}
+
+.features-list {
+    list-style: none;
+}
+
+.features-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.features-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--accent-gold);
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.features-list li strong {
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.project-actions-grid {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: pointer;
+}
+
+.project-btn--primary {
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+    border: none;
+}
+
+.project-btn--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+    background: var(--accent-gold-bright);
+}
+
+.project-btn--secondary {
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.project-btn--secondary:hover {
+    transform: translateY(-3px);
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+}
+
+.btn-icon {
+    margin-right: 8px;
+}
+
+/* ========================
+   RESPONSIVE LAYOUTS
+   ======================== */
+@media (max-width: 968px) {
+    .project-card {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 2rem;
+    }
+
+    .project-details-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
