@@ -68,7 +68,7 @@ if (cursorDot && cursorOutline) {
     });
 
     // Add hovering class when over links/buttons
-    document.querySelectorAll('a, button, .service-card, .gallery-item, .project-card, .project-preview-card, .tech-box-badge').forEach(el => {
+    document.querySelectorAll('a, button, .service-card, .gallery-item, .project-card, .project-image-stack, .stack-card, .tech-box-badge').forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
     });

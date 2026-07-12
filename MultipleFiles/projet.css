@@ -881,32 +881,58 @@ body.hovering .cursor-outline {
     align-items: start;
 }
 
-.project-preview-card {
-    padding: 1.5rem;
-    background: var(--card-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s;
+/* Card Stack Layout */
+.project-image-stack {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    margin: 0 auto;
 }
 
-.project-preview-card:hover {
-    transform: translateY(-5px) scale(1.01);
-    border-color: rgba(212, 175, 55, 0.25);
-}
-
-.project-preview-img-container {
-    border-radius: 16px;
+.stack-card {
+    position: absolute;
+    width: 75%;
+    max-width: 320px;
+    border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--glass-border);
-    background: #0f0f11;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), z-index 0s 0.2s, box-shadow 0.3s;
 }
 
-.project-preview-img {
+.stack-card img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
+}
+
+/* Card 1: iPhone Mockup (front by default) */
+.stack-card--1 {
+    top: 0;
+    left: 5%;
+    z-index: 2;
+    transform: rotate(-3deg);
+}
+
+/* Card 2: Pizza Hut Screen (behind by default) */
+.stack-card--2 {
+    top: 40px;
+    left: 30%;
+    z-index: 1;
+    transform: rotate(6deg);
+}
+
+/* Hover Spread & Swap Effect */
+.project-image-stack:hover .stack-card--1 {
+    transform: translateX(-25px) rotate(-8deg) scale(1.02);
+    box-shadow: 0 20px 45px rgba(212, 175, 55, 0.12);
+}
+
+.project-image-stack:hover .stack-card--2 {
+    transform: translateX(25px) rotate(8deg) scale(1.05);
+    z-index: 3;
+    box-shadow: 0 25px 50px rgba(212, 175, 55, 0.15);
 }
 
 .project-categories-badges {
@@ -1088,5 +1114,15 @@ body.hovering .cursor-outline {
     .project-details-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+
+    .project-image-stack {
+        height: 380px;
+        max-width: 480px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .stack-card {
+        width: 70%;
     }
 }
