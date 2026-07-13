@@ -915,7 +915,7 @@ body.hovering .cursor-outline {
     transform: rotate(-3deg);
 }
 
-/* Card 2: Pizza Hut Screen (behind by default) */
+/* Card 2: Store Menu Screen (behind by default) */
 .stack-card--2 {
     top: 40px;
     left: 30%;
@@ -923,16 +923,32 @@ body.hovering .cursor-outline {
     transform: rotate(6deg);
 }
 
+/* Card 3: McDonald's Store Preview (furthest back by default) */
+.stack-card--3 {
+    top: 80px;
+    left: 55%;
+    z-index: 0;
+    transform: rotate(12deg);
+    opacity: 0.85;
+}
+
 /* Hover Spread & Swap Effect */
 .project-image-stack:hover .stack-card--1 {
-    transform: translateX(-25px) rotate(-8deg) scale(1.02);
+    transform: translateX(-40px) rotate(-10deg) scale(1.02);
     box-shadow: 0 20px 45px rgba(212, 175, 55, 0.12);
 }
 
 .project-image-stack:hover .stack-card--2 {
-    transform: translateX(25px) rotate(8deg) scale(1.05);
+    transform: translateX(10px) rotate(4deg) scale(1.05);
     z-index: 3;
     box-shadow: 0 25px 50px rgba(212, 175, 55, 0.15);
+}
+
+.project-image-stack:hover .stack-card--3 {
+    transform: translateX(55px) rotate(14deg) scale(1.03);
+    z-index: 2;
+    opacity: 1;
+    box-shadow: 0 20px 45px rgba(212, 175, 55, 0.12);
 }
 
 .project-categories-badges {
