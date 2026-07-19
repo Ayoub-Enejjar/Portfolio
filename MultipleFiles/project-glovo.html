@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="projet.css">
@@ -16,26 +16,54 @@
 </head>
 
 <body id="top">
-    <header>
-        <div class="header-content">
-            <a href="index.html#projects-section">
-                <img src="images/new_logo.png" alt="Logo" class="logo">
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html#top">Portfolio</a></li>
-                    <li><a href="index.html#projects-section">Projects</a></li>
-                    <li><a href="index.html#design-section">Design</a></li>
-                    <li><a href="index.html#contact-section">Contact</a></li>
-                </ul>
-            </nav>
+    <!-- ========== LOADER ========== -->
+    <div id="loader">
+        <div class="loader-inner">
+            <div class="loader-logo">
+                <img src="images/new_logo.png" alt="Logo">
+            </div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+            <div class="loader-counter">0</div>
         </div>
-    </header>
+    </div>
 
-    <main class="container">
+    <!-- ========== CURSOR ========== -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"><span class="cursor-label"></span></div>
+
+    <!-- ========== SCROLL PROGRESS ========== -->
+    <div class="scroll-progress"></div>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="nav-pill" id="mainNav">
+        <a href="index.html#top" class="nav-logo">
+            <img src="images/new_logo.png" alt="AE">
+        </a>
+        <div class="nav-links">
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#experience" class="nav-link">Experience</a>
+            <a href="index.html#projects" class="nav-link active">Projects</a>
+            <a href="index.html#design" class="nav-link">Design</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-burger" id="navBurger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#about" class="mobile-link">About</a>
+        <a href="index.html#experience" class="mobile-link">Experience</a>
+        <a href="index.html#projects" class="mobile-link">Projects</a>
+        <a href="index.html#design" class="mobile-link">Design</a>
+        <a href="index.html#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <main class="container details-page-container">
         <!-- Back Navigation -->
         <div class="back-nav reveal active">
-            <a href="index.html#projects-section" class="back-btn">
+            <a href="index.html#projects" class="back-btn">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                     style="margin-right: 8px;">
                     <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"
@@ -119,7 +147,7 @@
                         <ul class="features-list">
                             <li>
                                 <strong>Multi-View Dashboard:</strong> Tailored dashboard layouts for standard users,
-                                couriers (delivery personnel), and administrators, ensuring role-specific interactions.
+                                courier agents (delivery personnel), and administrators, ensuring role-specific interactions.
                             </li>
                             <li>
                                 <strong>Courier Coordinator:</strong> Integrated status monitoring and tracking
@@ -164,13 +192,17 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 AYOUB ENEJJAR. Crafted with Passion.</p>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 AYOUB ENEJJAR</p>
+                <p class="footer-sub">Crafted with Passion</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
+    <!-- ========== SCRIPTS ========== -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script src="projet.js"></script>
 </body>
 

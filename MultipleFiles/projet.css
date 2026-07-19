@@ -1232,6 +1232,10 @@ footer {
 
 /* ========== PORTFOLIO DETAILS COMPATIBILITY ========== */
 /* Ensure details page layout items look consistent if they use same css */
+.details-page-container {
+    padding-top: 8rem;
+    margin-bottom: 6rem;
+}
 .back-nav {
     margin-bottom: 3rem;
 }

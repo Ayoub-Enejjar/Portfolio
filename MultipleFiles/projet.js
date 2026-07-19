@@ -141,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const heroRoleEl = document.getElementById("heroRole");
 
     function typeRole() {
+        if (!heroRoleEl) return;
         const currentRole = roles[roleIndex];
         if (isDeleting) {
             charIndex--;
@@ -163,122 +164,128 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(typeRole, speed);
     }
-    typeRole();
+    if (heroRoleEl) {
+        typeRole();
+    }
 
     // ==========================================
     // 5. 3D PARTICLE HERO CANVAS
     // ==========================================
     const canvas = document.getElementById("particleCanvas");
-    const ctx = canvas.getContext("2d");
-    let particlesArray = [];
-    const maxParticles = 60;
+    if (canvas) {
+        const ctx = canvas.getContext("2d");
+        let particlesArray = [];
+        const maxParticles = 60;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    window.addEventListener("resize", () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-    });
 
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 1;
-            this.speedX = Math.random() * 0.4 - 0.2;
-            this.speedY = Math.random() * 0.4 - 0.2;
-            this.baseX = this.x;
-            this.baseY = this.y;
-            this.density = Math.random() * 20 + 5;
-        }
-        update() {
-            // Distance from mouse
-            let dx = mouse.x - this.x;
-            let dy = mouse.y - this.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-            
-            // Push away from mouse
-            if (distance < 120) {
-                let forceDirectionX = dx / distance;
-                let forceDirectionY = dy / distance;
-                let force = (120 - distance) / 120;
-                let directionX = forceDirectionX * force * this.density;
-                let directionY = forceDirectionY * force * this.density;
-                this.x -= directionX;
-                this.y -= directionY;
-            } else {
-                if (this.x !== this.baseX) {
-                    this.x -= (this.x - this.baseX) * 0.05;
-                }
-                if (this.y !== this.baseY) {
-                    this.y -= (this.y - this.baseY) * 0.05;
-                }
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.4 - 0.2;
+                this.speedY = Math.random() * 0.4 - 0.2;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.density = Math.random() * 20 + 5;
             }
-
-            this.x += this.speedX;
-            this.y += this.speedY;
-
-            // Boundary wrap
-            if (this.x < 0 || this.x > canvas.width) this.speedX = -this.speedX;
-            if (this.y < 0 || this.y > canvas.height) this.speedY = -this.speedY;
-        }
-        draw() {
-            ctx.fillStyle = "rgba(212, 175, 55, 0.4)";
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.closePath();
-            ctx.fill();
-        }
-    }
-
-    function initParticles() {
-        particlesArray = [];
-        for (let i = 0; i < maxParticles; i++) {
-            particlesArray.push(new Particle());
-        }
-    }
-    initParticles();
-
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < particlesArray.length; i++) {
-            particlesArray[i].update();
-            particlesArray[i].draw();
-        }
-        // Connect particles
-        for (let a = 0; a < particlesArray.length; a++) {
-            for (let b = a; b < particlesArray.length; b++) {
-                let dx = particlesArray[a].x - particlesArray[b].x;
-                let dy = particlesArray[a].y - particlesArray[b].y;
+            update() {
+                // Distance from mouse
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
                 let distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 150) {
-                    ctx.strokeStyle = `rgba(212, 175, 55, ${0.1 - (distance / 150) * 0.1})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.beginPath();
-                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                    ctx.stroke();
+                
+                // Push away from mouse
+                if (distance < 120) {
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let force = (120 - distance) / 120;
+                    let directionX = forceDirectionX * force * this.density;
+                    let directionY = forceDirectionY * force * this.density;
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.x !== this.baseX) {
+                        this.x -= (this.x - this.baseX) * 0.05;
+                    }
+                    if (this.y !== this.baseY) {
+                        this.y -= (this.y - this.baseY) * 0.05;
+                    }
                 }
+
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Boundary wrap
+                if (this.x < 0 || this.x > canvas.width) this.speedX = -this.speedX;
+                if (this.y < 0 || this.y > canvas.height) this.speedY = -this.speedY;
+            }
+            draw() {
+                ctx.fillStyle = "rgba(212, 175, 55, 0.4)";
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
             }
         }
-        requestAnimationFrame(animateParticles);
+
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < maxParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            // Connect particles
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let dx = particlesArray[a].x - particlesArray[b].x;
+                    let dy = particlesArray[a].y - particlesArray[b].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(212, 175, 55, ${0.1 - (distance / 150) * 0.1})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
     }
-    animateParticles();
 
     // ==========================================
     // 6. GSAP SCROLLTRIGGER ANIMATIONS
     // ==========================================
     function initAnimations() {
         // Hero entrance
-        const tlHero = gsap.timeline();
-        tlHero.from(".hero-greeting", { opacity: 0, y: 20, duration: 0.6 })
-              .from(".name-line", { opacity: 0, y: 50, stagger: 0.2, duration: 0.8, ease: "power4.out" }, "-=0.3")
-              .from(".hero-role-wrapper", { opacity: 0, x: -20, duration: 0.5 }, "-=0.4")
-              .from(".hero-desc", { opacity: 0, y: 15, duration: 0.6 }, "-=0.3")
-              .from(".hero-cta", { opacity: 0, y: 15, duration: 0.6 }, "-=0.3")
-              .from(".scroll-hint", { opacity: 0, y: 10, duration: 0.5 }, "-=0.2");
+        if (document.querySelector(".hero-greeting")) {
+            const tlHero = gsap.timeline();
+            tlHero.from(".hero-greeting", { opacity: 0, y: 20, duration: 0.6 })
+                  .from(".name-line", { opacity: 0, y: 50, stagger: 0.2, duration: 0.8, ease: "power4.out" }, "-=0.3")
+                  .from(".hero-role-wrapper", { opacity: 0, x: -20, duration: 0.5 }, "-=0.4")
+                  .from(".hero-desc", { opacity: 0, y: 15, duration: 0.6 }, "-=0.3")
+                  .from(".hero-cta", { opacity: 0, y: 15, duration: 0.6 }, "-=0.3")
+                  .from(".scroll-hint", { opacity: 0, y: 10, duration: 0.5 }, "-=0.2");
+        }
 
         // Staggered Sections fade-ins
         document.querySelectorAll(".section-pad").forEach((section) => {
