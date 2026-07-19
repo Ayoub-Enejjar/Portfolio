@@ -4,9 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ==========================================
     // EmailJS Initialization
-    // Replace 'YOUR_PUBLIC_KEY' with your key from emailjs.com > Account > Public Key
     // ==========================================
-    emailjs.init("YOUR_PUBLIC_KEY");
+    emailjs.init("5LifZfCLdaCWv_HDg");
 
     // ==========================================
     // 1. LOADER SYSTEM
@@ -414,6 +413,15 @@ document.addEventListener("DOMContentLoaded", () => {
         contactForm.addEventListener("submit", async (e) => {
             e.preventDefault();
 
+            // Set submission timestamp for template {{time}} variable
+            const formTime = document.getElementById("formTime");
+            if (formTime) {
+                formTime.value = new Date().toLocaleString("en-GB", {
+                    weekday: "long", year: "numeric", month: "long",
+                    day: "numeric", hour: "2-digit", minute: "2-digit"
+                });
+            }
+
             // Set loading state
             submitBtn.disabled = true;
             submitBtn.classList.add("sending");
@@ -421,8 +429,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             try {
                 await emailjs.sendForm(
-                    "YOUR_SERVICE_ID",    // ← replace with your EmailJS Service ID
-                    "YOUR_TEMPLATE_ID",   // ← replace with your EmailJS Template ID
+                    "service_b9gatkm",
+                    "YOUR_TEMPLATE_ID",   // ← paste your Template ID here (e.g. template_xxxxxxx)
                     contactForm
                 );
 
