@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (this.y < 0 || this.y > canvas.height) this.speedY = -this.speedY;
             }
             draw() {
-                ctx.fillStyle = "rgba(212, 175, 55, 0.4)";
+                ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.closePath();
@@ -258,8 +258,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     let distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < 150) {
-                        ctx.strokeStyle = `rgba(212, 175, 55, ${0.1 - (distance / 150) * 0.1})`;
-                        ctx.lineWidth = 0.5;
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.06 - (distance / 150) * 0.06})`;
+                        ctx.lineWidth = 0.4;
                         ctx.beginPath();
                         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
                         ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
