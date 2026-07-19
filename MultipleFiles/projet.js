@@ -430,7 +430,7 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 await emailjs.sendForm(
                     "service_b9gatkm",
-                    "YOUR_TEMPLATE_ID",   // ← paste your Template ID here (e.g. template_xxxxxxx)
+                    "template_qzgavch",
                     contactForm
                 );
 
