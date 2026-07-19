@@ -3,9 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // ==========================================
-    // EmailJS Initialization
+    // EmailJS Initialization (Safeguarded)
     // ==========================================
-    emailjs.init("5LifZfCLdaCWv_HDg");
+    if (typeof emailjs !== "undefined") {
+        emailjs.init("5LifZfCLdaCWv_HDg");
+    } else {
+        console.warn("EmailJS SDK is not loaded or has been blocked.");
+    }
 
     // ==========================================
     // 1. LOADER SYSTEM
@@ -428,6 +432,10 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtnText.textContent = "Sending...";
 
             try {
+                if (typeof emailjs === "undefined") {
+                    throw new Error("EmailJS SDK is not loaded/blocked.");
+                }
+
                 await emailjs.sendForm(
                     "service_b9gatkm",
                     "template_qzgavch",
