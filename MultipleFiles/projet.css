@@ -1151,32 +1151,6 @@ body.hovering .cursor-label {
     100% { transform: translateX(calc(-50% - 1rem)); }
 }
 
-/* ========== SERVICE PACKAGES ========== */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.service-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 24px;
-    overflow: hidden;
-    transition: border-color 0.3s, transform 0.3s;
-}
-
-.service-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.service-card:hover {
-    border-color: var(--accent-gold);
-    transform: translateY(-5px);
-}
-
 /* ========== CONTACT SECTION ========== */
 .contact-grid {
     display: grid;
@@ -1600,11 +1574,6 @@ footer {
         gap: 3rem;
     }
 
-    /* Services */
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     /* Project Details */
     .project-details-grid {
         grid-template-columns: 1fr;
@@ -1729,11 +1698,6 @@ footer {
     .marquee-img--logo {
         height: 180px;
         padding: 1rem;
-    }
-
-    /* Services */
-    .services-grid {
-        grid-template-columns: 1fr;
     }
 
     /* Contact */
