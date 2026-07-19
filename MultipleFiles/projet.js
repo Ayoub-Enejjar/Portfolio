@@ -363,84 +363,84 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             }
+        });
 
-            // Projects specifics (yasio.dev Style Horizontal Scroll)
-            if (section.id === "projects") {
-                const horizontalSection = document.getElementById("projects");
-                const horizontalContent = horizontalSection.querySelector(".horizontal-content");
-                const bgText = horizontalSection.querySelector(".horizontal-bg-text");
+        // Projects specifics (yasio.dev Style Horizontal Scroll)
+        const horizontalSection = document.getElementById("projects");
+        if (horizontalSection) {
+            const horizontalContent = horizontalSection.querySelector(".horizontal-content");
+            const bgText = horizontalSection.querySelector(".horizontal-bg-text");
 
-                ScrollTrigger.matchMedia({
-                    // Desktop: >= 1024px
-                    "(min-width: 1024px)": function() {
-                        const getScrollAmount = () => {
-                            let contentWidth = horizontalContent.scrollWidth;
-                            let viewportWidth = window.innerWidth;
-                            return -(contentWidth - viewportWidth);
-                        };
+            ScrollTrigger.matchMedia({
+                // Desktop: >= 1024px
+                "(min-width: 1024px)": function() {
+                    const getScrollAmount = () => {
+                        let contentWidth = horizontalContent.scrollWidth;
+                        let viewportWidth = window.innerWidth;
+                        return -(contentWidth - viewportWidth);
+                    };
 
-                        // Pin the section and scroll horizontally
-                        gsap.to(horizontalContent, {
-                            x: getScrollAmount,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: horizontalSection,
-                                start: "top top",
-                                end: () => `+=${horizontalContent.scrollWidth - window.innerWidth}`,
-                                pin: true,
-                                scrub: 1,
-                                invalidateOnRefresh: true,
-                                anticipatePin: 1
-                            }
-                        });
+                    // Pin the section and scroll horizontally
+                    gsap.to(horizontalContent, {
+                        x: getScrollAmount,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: horizontalSection,
+                            start: "top top",
+                            end: () => `+=${horizontalContent.scrollWidth - window.innerWidth}`,
+                            pin: true,
+                            scrub: 1,
+                            invalidateOnRefresh: true,
+                            anticipatePin: 1
+                        }
+                    });
 
-                        // Giant background text parallax slide
-                        gsap.to(bgText, {
-                            x: -200,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: horizontalSection,
-                                start: "top top",
-                                end: () => `+=${horizontalContent.scrollWidth - window.innerWidth}`,
-                                scrub: 1
-                            }
-                        });
+                    // Giant background text parallax slide
+                    gsap.to(bgText, {
+                        x: -200,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: horizontalSection,
+                            start: "top top",
+                            end: () => `+=${horizontalContent.scrollWidth - window.innerWidth}`,
+                            scrub: 1
+                        }
+                    });
 
-                        // Staggered reveal for horizontal cards
-                        gsap.from(".h-card", {
+                    // Staggered reveal for horizontal cards
+                    gsap.from(".h-card", {
+                        opacity: 0,
+                        x: 100,
+                        stagger: 0.1,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: horizontalSection,
+                            start: "top 20%",
+                            end: "top top",
+                            scrub: true
+                        }
+                    });
+                },
+                
+                // Mobile & Tablet: < 1024px (regular vertical flow)
+                "(max-width: 1023px)": function() {
+                    // Standard scroll fade-in for stacked layout
+                    document.querySelectorAll(".h-card").forEach((card) => {
+                        gsap.from(card, {
                             opacity: 0,
-                            x: 100,
-                            stagger: 0.1,
+                            y: 50,
                             duration: 0.8,
                             ease: "power2.out",
                             scrollTrigger: {
-                                trigger: horizontalSection,
-                                start: "top 20%",
-                                end: "top top",
-                                scrub: true
+                                trigger: card,
+                                start: "top 80%"
                             }
                         });
-                    },
-                    
-                    // Mobile & Tablet: < 1024px (regular vertical flow)
-                    "(max-width: 1023px)": function() {
-                        // Standard scroll fade-in for stacked layout
-                        document.querySelectorAll(".h-card").forEach((card) => {
-                            gsap.from(card, {
-                                opacity: 0,
-                                y: 50,
-                                duration: 0.8,
-                                ease: "power2.out",
-                                scrollTrigger: {
-                                    trigger: card,
-                                    start: "top 80%"
-                                }
-                            });
-                        });
-                    }
-                });
-            }
-        });
+                    });
+                }
+            });
+        }
     }
 
     // ==========================================
