@@ -230,55 +230,94 @@
         </div>
     </section>
 
-    <!-- ========== PROJECTS ========== -->
-    <section id="projects" class="section-pad">
-        <div class="container">
-            <h2 class="section-label">Work</h2>
-            <h3 class="section-heading">Selected Projects</h3>
-
-            <div class="project-showcase">
-                <!-- Project 01: Glovo -->
-                <div class="proj-card">
-                    <div class="proj-number">01</div>
-                    <div class="proj-image">
-                        <a href="project-glovo.html">
-                            <img src="images/glovo_real_preview2.png" alt="Glovo Delivery App">
-                            <div class="proj-image-overlay"><span>View Project →</span></div>
-                        </a>
-                    </div>
-                    <div class="proj-info">
-                        <span class="proj-badge">Fullstack Web App</span>
-                        <h4 class="proj-title"><a href="project-glovo.html">Delivery-App</a></h4>
-                        <p class="proj-desc">A fullstack delivery management system with modular dashboards, courier coordination, custom order forms, and real-time tracking — deployed on Netlify.</p>
-                        <div class="proj-tags">
-                            <span>React</span><span>Node.js</span><span>CSS Modules</span><span>Netlify</span>
-                        </div>
-                        <a href="project-glovo.html" class="proj-link">View Details →</a>
+    <!-- ========== PROJECTS (yasio.dev Style Horizontal Scroll) ========== -->
+    <section id="projects" class="horizontal-scroll-section">
+        <div class="pin-wrap">
+            <div class="horizontal-content">
+                <!-- Pinned Intro Panel -->
+                <div class="horizontal-intro">
+                    <h2 class="section-label">Work /></h2>
+                    <h3 class="section-heading">Selected web &amp;<br>mobile projects...</h3>
+                    <div class="scroll-instruction">
+                        <span>Scroll Down</span>
+                        <svg class="scroll-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </div>
                 </div>
 
-                <!-- Project 02: Cabinet Medical -->
-                <div class="proj-card proj-card--soon">
-                    <div class="proj-number">02</div>
-                    <div class="proj-image proj-image--soon">
-                        <div class="soon-visual">
-                            <svg viewBox="0 0 120 120" fill="none" class="soon-icon">
-                                <circle cx="60" cy="60" r="50" stroke="#d4af37" stroke-width="1" opacity="0.3"/>
-                                <circle cx="60" cy="60" r="35" stroke="#d4af37" stroke-width="1" opacity="0.2"/>
-                                <path d="M60 30v30l20 12" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="60" cy="60" r="4" fill="#d4af37"/>
-                            </svg>
-                            <span class="soon-badge">Coming Soon</span>
+                <!-- Giant Background Text -->
+                <div class="horizontal-bg-text">WORK</div>
+
+                <!-- Cards Wrapper -->
+                <div class="horizontal-cards">
+                    <!-- Project 01: Glovo -->
+                    <div class="h-card h-card--high">
+                        <div class="h-card-inner">
+                            <div class="h-card-img-wrapper">
+                                <a href="project-glovo.html">
+                                    <img src="images/glovo_real_preview2.png" alt="Glovo Delivery App">
+                                    <div class="h-card-overlay"><span>View Project →</span></div>
+                                </a>
+                            </div>
+                            <div class="h-card-info">
+                                <div class="h-card-num-line">
+                                    <span class="h-card-number">00</span>
+                                    <div class="h-card-line"></div>
+                                </div>
+                                <h4 class="h-card-title"><a href="project-glovo.html">Delivery-App</a></h4>
+                                <span class="h-card-tag">React / Node.js / CSS Modules</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="proj-info">
-                        <span class="proj-badge proj-badge--soon">In Development</span>
-                        <h4 class="proj-title">Cabinet Medical Manager</h4>
-                        <p class="proj-desc">A comprehensive website management platform for medical offices — featuring appointment scheduling, patient portals, doctor profiles, and medical records. Currently in development, coming soon for hosting.</p>
-                        <div class="proj-tags">
-                            <span>Laravel</span><span>MySQL</span><span>Full Stack</span><span>Healthcare</span>
+
+                    <!-- Project 02: Cabinet Medical -->
+                    <div class="h-card h-card--low">
+                        <div class="h-card-inner">
+                            <div class="h-card-img-wrapper soon-img-wrapper">
+                                <div class="soon-visual">
+                                    <svg viewBox="0 0 120 120" fill="none" class="soon-icon">
+                                        <circle cx="60" cy="60" r="50" stroke="#d4af37" stroke-width="1" opacity="0.3"/>
+                                        <circle cx="60" cy="60" r="35" stroke="#d4af37" stroke-width="1" opacity="0.2"/>
+                                        <path d="M60 30v30l20 12" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                                        <circle cx="60" cy="60" r="4" fill="#d4af37"/>
+                                    </svg>
+                                    <span class="soon-badge">Coming Soon</span>
+                                </div>
+                            </div>
+                            <div class="h-card-info">
+                                <div class="h-card-num-line">
+                                    <span class="h-card-number">01</span>
+                                    <div class="h-card-line"></div>
+                                </div>
+                                <h4 class="h-card-title">Cabinet Medical</h4>
+                                <span class="h-card-tag">Laravel / MySQL / Health Tech</span>
+                            </div>
                         </div>
-                        <span class="proj-link proj-link--soon">Launching Soon ✦</span>
+                    </div>
+
+                    <!-- Project 03: Business Intel Suite -->
+                    <div class="h-card h-card--high">
+                        <div class="h-card-inner">
+                            <div class="h-card-img-wrapper soon-img-wrapper">
+                                <div class="soon-visual">
+                                    <svg viewBox="0 0 120 120" fill="none" class="soon-icon">
+                                        <rect x="35" y="35" width="50" height="50" rx="6" stroke="#d4af37" stroke-width="1" opacity="0.2"/>
+                                        <line x1="45" y1="65" x2="45" y2="75" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="60" y1="50" x2="60" y2="75" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                                        <line x1="75" y1="58" x2="75" y2="75" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M45 65 L60 50 L75 58" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+                                    </svg>
+                                    <span class="soon-badge">Upwork 2024</span>
+                                </div>
+                            </div>
+                            <div class="h-card-info">
+                                <div class="h-card-num-line">
+                                    <span class="h-card-number">02</span>
+                                    <div class="h-card-line"></div>
+                                </div>
+                                <h4 class="h-card-title">Business Intel Suite</h4>
+                                <span class="h-card-tag">Upwork Freelance / Strategy</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
