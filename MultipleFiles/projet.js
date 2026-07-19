@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // ==========================================
+    // EmailJS Initialization
+    // Replace 'YOUR_PUBLIC_KEY' with your key from emailjs.com > Account > Public Key
+    // ==========================================
+    emailjs.init("YOUR_PUBLIC_KEY");
+
+    // ==========================================
     // 1. LOADER SYSTEM
     // ==========================================
     const loader = document.getElementById("loader");
@@ -386,24 +392,50 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==========================================
-    // 7. CONTACT FORM SUBMISSION
+    // 7. CONTACT FORM SUBMISSION (EmailJS)
+    // Replace placeholders below with your EmailJS values:
+    //   SERVICE_ID  → EmailJS > Email Services > your service ID
+    //   TEMPLATE_ID → EmailJS > Email Templates > your template ID
     // ==========================================
     const contactForm = document.getElementById("contactForm");
     if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
+        const submitBtn = document.getElementById("submitBtn");
+        const submitBtnText = document.getElementById("submitBtnText");
+        const formToast = document.getElementById("formToast");
+
+        function showToast(type, message) {
+            formToast.className = `form-toast ${type}`;
+            formToast.textContent = message;
+            setTimeout(() => {
+                formToast.className = "form-toast";
+            }, 6000);
+        }
+
+        contactForm.addEventListener("submit", async (e) => {
             e.preventDefault();
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const message = document.getElementById("message").value.trim();
 
-            if (!name || !email || !message) {
-                alert("Please fill out all required fields.");
-                return;
+            // Set loading state
+            submitBtn.disabled = true;
+            submitBtn.classList.add("sending");
+            submitBtnText.textContent = "Sending...";
+
+            try {
+                await emailjs.sendForm(
+                    "YOUR_SERVICE_ID",    // ← replace with your EmailJS Service ID
+                    "YOUR_TEMPLATE_ID",   // ← replace with your EmailJS Template ID
+                    contactForm
+                );
+
+                showToast("success", "✓ Message sent! I'll get back to you soon.");
+                contactForm.reset();
+            } catch (error) {
+                console.error("EmailJS error:", error);
+                showToast("error", "✗ Something went wrong. Please email me directly at a.enejjar2732@uca.ac.ma");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove("sending");
+                submitBtnText.textContent = "Send Message";
             }
-
-            console.log("Form Submitted Successfully:", { name, email, message });
-            alert(`Thank you, ${name}! Your message has been received.`);
-            contactForm.reset();
         });
     }
 });

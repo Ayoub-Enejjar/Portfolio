@@ -1218,6 +1218,44 @@ body.hovering .cursor-label {
     transform: translateX(5px);
 }
 
+.submit-btn:disabled,
+.submit-btn.sending {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.form-toast {
+    display: none;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    border-left: 3px solid transparent;
+    animation: toastIn 0.3s ease;
+}
+
+.form-toast.success {
+    display: block;
+    background: rgba(45, 200, 100, 0.1);
+    border-left-color: #2dc864;
+    color: #2dc864;
+}
+
+.form-toast.error {
+    display: block;
+    background: rgba(220, 60, 60, 0.1);
+    border-left-color: #dc3c3c;
+    color: #dc3c3c;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* ========== FOOTER ========== */
 footer {
     padding: 4rem 0;
