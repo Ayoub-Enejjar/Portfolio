@@ -72,18 +72,86 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
-.loader-logo img {
-    height: 70px;
-    width: auto;
-    animation: pulseLogo 2s infinite ease-in-out;
+.loader-graphic {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
 }
 
-@keyframes pulseLogo {
-    0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 15px var(--accent-gold)); }
+.ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+.ring-1 {
+    width: 100%;
+    height: 100%;
+    border-top-color: var(--accent-gold);
+    animation: rotateRing1 1.5s linear infinite;
+}
+
+.ring-2 {
+    width: 80%;
+    height: 80%;
+    border-right-color: rgba(255, 255, 255, 0.7);
+    animation: rotateRing2 1.5s linear infinite;
+}
+
+.ring-3 {
+    width: 60%;
+    height: 60%;
+    border-bottom-color: var(--accent-gold);
+    animation: rotateRing3 1.5s linear infinite;
+}
+
+@keyframes rotateRing1 {
+    0% { transform: rotateX(35deg) rotateY(45deg) rotateZ(0deg); }
+    100% { transform: rotateX(35deg) rotateY(45deg) rotateZ(360deg); }
+}
+
+@keyframes rotateRing2 {
+    0% { transform: rotateX(50deg) rotateY(-15deg) rotateZ(0deg); }
+    100% { transform: rotateX(50deg) rotateY(-15deg) rotateZ(360deg); }
+}
+
+@keyframes rotateRing3 {
+    0% { transform: rotateX(15deg) rotateY(70deg) rotateZ(0deg); }
+    100% { transform: rotateX(15deg) rotateY(70deg) rotateZ(-360deg); }
+}
+
+.loader-text {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    display: flex;
+    gap: 5px;
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+.loader-text span {
+    display: inline-block;
+    animation: bounceChar 2s ease-in-out infinite alternate;
+}
+
+.loader-text span:nth-child(2) {
+    animation-delay: 0.2s;
+    color: var(--accent-gold);
+}
+
+@keyframes bounceChar {
+    0% { transform: translateY(5px); opacity: 0.7; }
+    100% { transform: translateY(-5px); opacity: 1; filter: drop-shadow(0 0 10px var(--accent-gold)); }
 }
 
 .loader-bar {
