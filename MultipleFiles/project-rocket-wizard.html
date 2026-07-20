@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Wizard AI Project | Ayoub Enejjar Portfolio</title>
+    <meta name="description" content="Rocket Wizard AI (Rocket.new) — Build agents that handle your business. Configure, deploy, and manage AI customer support and lead generation agents with zero coding.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="projet.css">
+    <link rel="icon" type="image/png" href="images/new_logo.png">
+</head>
+
+<body id="top">
+    <!-- ========== LOADER ========== -->
+    <div id="loader">
+        <div class="loader-inner">
+            <div class="loader-text">AE</div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+            <div class="loader-counter">0</div>
+        </div>
+    </div>
+
+    <!-- ========== CURSOR ========== -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"><span class="cursor-label"></span></div>
+
+    <!-- ========== SCROLL PROGRESS ========== -->
+    <div class="scroll-progress"></div>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="nav-pill" id="mainNav">
+        <a href="index.html#top" class="nav-logo">
+            <img src="images/new_logo.png" alt="AE">
+        </a>
+        <div class="nav-links">
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="index.html#experience" class="nav-link">Experience</a>
+            <a href="index.html#projects" class="nav-link active">Projects</a>
+            <a href="index.html#design" class="nav-link">Design</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+        <button class="nav-burger" id="navBurger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#about" class="mobile-link">About</a>
+        <a href="index.html#experience" class="mobile-link">Experience</a>
+        <a href="index.html#projects" class="mobile-link">Projects</a>
+        <a href="index.html#design" class="mobile-link">Design</a>
+        <a href="index.html#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <main class="container details-page-container">
+        <!-- Back Navigation -->
+        <div class="back-nav reveal active">
+            <a href="index.html#projects" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                     style="margin-right: 8px;">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                Back to Portfolio
+            </a>
+        </div>
+
+        <section class="project-details-section">
+            <div class="project-details-grid">
+                <!-- Visuals Column (Premium Hover-Stack) -->
+                <div class="project-visuals-col reveal active">
+                    <div class="project-image-stack">
+                        <div class="stack-card stack-card--1">
+                            <img src="images/rocket_wizard_preview1.png" alt="Rocket Wizard AI Setup Flow Mockup">
+                        </div>
+                        <div class="stack-card stack-card--2">
+                            <img src="images/rocket_wizard_preview2.png" alt="Rocket Wizard AI Personality Settings">
+                        </div>
+                        <div class="stack-card stack-card--3">
+                            <img src="images/rocket_wizard_preview3.png" alt="Rocket Wizard AI Dashboard & Analytics">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Column -->
+                <div class="project-info-col reveal active">
+                    <div class="project-header">
+                        <div class="project-categories-badges">
+                            <span class="project-badge">Fullstack</span>
+                            <span class="project-badge">AI Agents</span>
+                            <span class="project-badge">Automation</span>
+                            <span class="project-badge">React & Vite</span>
+                        </div>
+                        <h1 class="project-detail-title glitch-text">Rocket Wizard AI</h1>
+                        <p class="project-tagline">Build agents that handle your business in minutes</p>
+                    </div>
+
+                    <div class="project-description-card">
+                        <p class="description-text">
+                            A premium, dark-mode platform designed to configure, deploy, and manage AI customer support and lead generation agents across multiple channels (WhatsApp, Instagram, Web) with zero coding.
+                        </p>
+                    </div>
+
+                    <!-- Tech Stack Box -->
+                    <div class="project-tech-box">
+                        <h3 class="tech-box-title">Tech Stack</h3>
+                        <div class="tech-box-grid">
+                            <div class="tech-box-badge">
+                                <i class="devicon-react-original colored"></i>
+                                <span>React 18</span>
+                            </div>
+                            <div class="tech-box-badge">
+                                <i class="devicon-tailwindcss-plain colored"></i>
+                                <span>TailwindCSS</span>
+                            </div>
+                            <div class="tech-box-badge">
+                                <i class="devicon-redux-original colored"></i>
+                                <span>Redux Toolkit</span>
+                            </div>
+                            <div class="devicon-html5-plain colored tech-box-badge" style="display: flex; gap: 8px; align-items: center;">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color: #a3e635;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                                <span>Framer Motion</span>
+                            </div>
+                            <div class="tech-box-badge">
+                                <i class="devicon-d3js-plain colored"></i>
+                                <span>D3.js / Recharts</span>
+                            </div>
+                            <div class="tech-box-badge">
+                                <i class="devicon-git-plain colored"></i>
+                                <span>Git / GitHub</span>
+                            </div>
+                            <div class="tech-box-badge">
+                                <i class="devicon-netlify-plain colored"></i>
+                                <span>Netlify</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Features -->
+                    <div class="project-features-box">
+                        <h3 class="features-title">Core Implementation Details</h3>
+                        <ul class="features-list">
+                            <li>
+                                <strong>Interactive Agent Builder:</strong> A multi-step setup wizard that guides users through configuring agent identities, personalities, and custom knowledge bases.
+                            </li>
+                            <li>
+                                <strong>Multi-Channel Integrations:</strong> Built-in connection capabilities for deploying agents directly onto WhatsApp, Instagram, and web chat widgets.
+                            </li>
+                            <li>
+                                <strong>Real-Time Analytics Dashboard:</strong> Sleek charts (using Recharts/D3.js) showing lead metrics, total interactions, meeting bookings, and dynamic conversation history.
+                            </li>
+                            <li>
+                                <strong>Pre-Trained Templates:</strong> Customizable agent blueprints for specific industries like logistics, beauty/salons, and repair services.
+                            </li>
+                            <li>
+                                <strong>Premium Micro-Animations:</strong> Fluid layout transitions and animated dashboard widgets using Framer Motion.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Action Links -->
+                    <div class="project-actions-grid">
+                        <a href="https://rocket-wizard-ai.netlify.app/" target="_blank"
+                            class="project-btn project-btn--primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            Live Website
+                        </a>
+                        <a href="https://github.com/Ayoub-Enejjar/Agent-Setup-Wizard-AI" target="_blank"
+                            class="project-btn project-btn--secondary">
+                            <i class="devicon-github-original" style="font-size: 1.2rem; margin-right: 8px;"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 AYOUB ENEJJAR</p>
+                <p class="footer-sub">Crafted with Passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="projet.js"></script>
+</body>
+
+</html>
