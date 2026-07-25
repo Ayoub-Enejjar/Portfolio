@@ -19,15 +19,32 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("EmailJS SDK is not loaded or has been blocked.");
     }
 
-    // Helper: Scroll to exact top of section (accounting for GSAP pin-spacer)
+    // Calculate exact document scroll top position for any section (unaffected by transforms/pinning)
+    function getElementScrollTop(el) {
+        if (!el) return 0;
+        const st = ScrollTrigger.getAll().find(s => s.trigger === el || s.pin === el);
+        if (st && typeof st.start === 'number' && st.start > 0) {
+            return st.start;
+        }
+        
+        let top = 0;
+        let current = el;
+        if (current.parentElement && current.parentElement.classList.contains('pin-spacer')) {
+            current = current.parentElement;
+        }
+        while (current && current !== document.body) {
+            top += current.offsetTop || 0;
+            current = current.offsetParent;
+        }
+        return top;
+    }
+
+    // Helper: Scroll to exact top of section (accounting for GSAP pin-spacer & ScrollTrigger start)
     function scrollToSection(targetId, smooth = true) {
         const targetEl = document.querySelector(targetId);
         if (!targetEl) return;
         
-        // If GSAP created a pin-spacer wrapper for this section, target its top
-        const pinSpacer = targetEl.closest('.pin-spacer') || targetEl;
-        const rect = pinSpacer.getBoundingClientRect();
-        const targetY = rect.top + window.scrollY;
+        const targetY = getElementScrollTop(targetEl);
 
         window.scrollTo({
             top: targetY,
