@@ -19,24 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("EmailJS SDK is not loaded or has been blocked.");
     }
 
-    // Calculate exact document scroll top Y position for any section (accurate with GSAP pin-spacers)
-    function getSectionTop(el) {
+    // Calculate static document scroll Y position for any section (handles GSAP pin-spacers cleanly)
+    function getAbsoluteSectionTop(el) {
         if (!el) return 0;
-        
-        const st = ScrollTrigger.getAll().find(s => s.trigger === el || s.pin === el);
-        if (st && typeof st.start === 'number') {
-            if (st.vars.pin || st.vars.start === "top top") {
-                return st.start;
-            }
-            // Convert start trigger position (e.g. "top 80%") to exact top of viewport ("top top")
-            return st.start + (window.innerHeight * 0.8);
-        }
+        // If element is inside or wrapped by a GSAP pin-spacer, target the pin-spacer container
+        const target = el.closest('.pin-spacer') || el;
         
         let top = 0;
-        let current = el;
-        if (current.parentElement && current.parentElement.classList.contains('pin-spacer')) {
-            current = current.parentElement;
-        }
+        let current = target;
         while (current && current !== document.body) {
             top += current.offsetTop || 0;
             current = current.offsetParent;
@@ -49,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const targetEl = document.querySelector(targetId);
         if (!targetEl) return;
         
-        const targetY = getSectionTop(targetEl);
+        const targetY = getAbsoluteSectionTop(targetEl);
 
         window.scrollTo({
             top: targetY,
@@ -185,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Active Section Tracker (Using GSAP section tops)
+    // Active Section Tracker
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav-link");
 
@@ -195,8 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const scrollY = window.scrollY;
 
             sections.forEach((section) => {
-                const sectionTop = getSectionTop(section);
-                if (scrollY >= sectionTop - 200) {
+                const sectionTop = getAbsoluteSectionTop(section);
+                if (scrollY >= sectionTop - 150) {
                     current = section.getAttribute("id");
                 }
             });
