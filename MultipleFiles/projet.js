@@ -19,12 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("EmailJS SDK is not loaded or has been blocked.");
     }
 
-    // Calculate exact document scroll top position for any section (unaffected by transforms/pinning)
-    function getElementScrollTop(el) {
+    // Calculate exact document scroll top Y position for any section (accurate with GSAP pin-spacers)
+    function getSectionTop(el) {
         if (!el) return 0;
+        
         const st = ScrollTrigger.getAll().find(s => s.trigger === el || s.pin === el);
-        if (st && typeof st.start === 'number' && st.start > 0) {
-            return st.start;
+        if (st && typeof st.start === 'number') {
+            if (st.vars.pin || st.vars.start === "top top") {
+                return st.start;
+            }
+            // Convert start trigger position (e.g. "top 80%") to exact top of viewport ("top top")
+            return st.start + (window.innerHeight * 0.8);
         }
         
         let top = 0;
@@ -39,12 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return top;
     }
 
-    // Helper: Scroll to exact top of section (accounting for GSAP pin-spacer & ScrollTrigger start)
+    // Helper: Scroll to exact top of section
     function scrollToSection(targetId, smooth = true) {
         const targetEl = document.querySelector(targetId);
         if (!targetEl) return;
         
-        const targetY = getElementScrollTop(targetEl);
+        const targetY = getSectionTop(targetEl);
 
         window.scrollTo({
             top: targetY,
@@ -180,16 +185,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Active Section Tracker
-    const sections = document.querySelectorAll("section");
+    // Active Section Tracker (Using GSAP section tops)
+    const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav-link");
 
     if (sections.length > 0 && navLinks.length > 0) {
         window.addEventListener("scroll", () => {
             let current = "";
+            const scrollY = window.scrollY;
+
             sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 300) {
+                const sectionTop = getSectionTop(section);
+                if (scrollY >= sectionTop - 200) {
                     current = section.getAttribute("id");
                 }
             });
