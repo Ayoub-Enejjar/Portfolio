@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Prevent browser automatic hash jump on load so GSAP ScrollTrigger measures from top (0,0)
+    // Prevent automatic browser hash jump on load so GSAP ScrollTrigger measures from top (0,0)
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
     }
@@ -19,6 +19,34 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("EmailJS SDK is not loaded or has been blocked.");
     }
 
+    // Helper: Scroll to exact top of section (accounting for GSAP pin-spacer)
+    function scrollToSection(targetId, smooth = true) {
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl) return;
+        
+        // If GSAP created a pin-spacer wrapper for this section, target its top
+        const pinSpacer = targetEl.closest('.pin-spacer') || targetEl;
+        const rect = pinSpacer.getBoundingClientRect();
+        const targetY = rect.top + window.scrollY;
+
+        window.scrollTo({
+            top: targetY,
+            behavior: smooth ? "smooth" : "auto"
+        });
+    }
+
+    // Intercept clicks on internal section anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            const targetId = anchor.getAttribute('href');
+            if (targetId && targetId !== "#" && document.querySelector(targetId)) {
+                e.preventDefault();
+                scrollToSection(targetId, true);
+                history.pushState(null, "", targetId);
+            }
+        });
+    });
+
     // ==========================================
     // 1. LOADER SYSTEM
     // ==========================================
@@ -36,11 +64,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 setTimeout(() => {
                     loader.classList.add("loaded");
                     initAnimations(); // Start animations once loader is gone
-                }, 300);
+                }, 250);
             }
             if (loaderCounter) loaderCounter.textContent = count;
             if (loaderBarFill) loaderBarFill.style.width = count + "%";
-        }, 40);
+        }, 30);
     } else {
         initAnimations();
     }
@@ -371,14 +399,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ScrollTrigger.refresh();
 
         // Handle target hash navigation after loader hides & animations init
-        if (window.location.hash) {
-            const targetHash = window.location.hash;
-            const targetElement = document.querySelector(targetHash);
-            if (targetElement) {
-                setTimeout(() => {
-                    targetElement.scrollIntoView({ behavior: "smooth" });
-                }, 200);
-            }
+        if (window.location.hash && document.querySelector(window.location.hash)) {
+            setTimeout(() => {
+                scrollToSection(window.location.hash, true);
+            }, 150);
         }
     }
 
